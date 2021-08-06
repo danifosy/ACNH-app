@@ -1,0 +1,40 @@
+.card {
+  background-color: #d0f4ea;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 1fr;
+  border-radius: 1em;
+  height: 16em;
+}
+
+.img {
+  border-radius: 1em 0 0 1em;
+  padding-top: 0;
+}
+
+.article {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: end;
+  padding-right: 1em;
+}
+
+.name {
+  letter-spacing: 0.7em;
+  text-align: left;
+  padding-left: 0.5em;
+}
+
+@media (max-width: 500px) {
+  .article {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    width: 1em;
+  }
+
+  .img {
+    width: 100%;
+    border-radius: 2em 2em 0 0;
+  }
+}
