@@ -5,9 +5,14 @@ const app = document.querySelector<HTMLDivElement>('#app');
 
 const mainElement = createElement('main', {
   className: 'container',
-  childElements: [
-    createElement('h1', { innerText: 'Animal Crossing New Horizon Villagers' }),
 
+  childElements: [
+    /*h1*/
+    createElement('h1', {
+      className: 'header',
+      innerText: 'Animal Crossing New Horizon Villagers',
+    }),
+    /*input*/
     createElement('input', {
       className: 'searchBar',
       placeholder: 'Find your favorite villager...',
