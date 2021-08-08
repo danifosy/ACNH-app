@@ -6,12 +6,11 @@ import { getVillager, searchVillager } from './utils/api';
 
 const app = document.querySelector<HTMLDivElement>('#app');
 
-// const villagers: Villager[] = await getVillager();
-const villagers: Villager[] = await searchVillager('ros');
+const allVillagers: Villager[] = await getVillager();
 
 const villagerContainer = createElement('div', {
   className: 'villagerContainer',
-  childElements: villagers.map((villager) => createVillagerCard(villager)),
+  childElements: allVillagers.map((villager) => createVillagerCard(villager)),
 });
 
 /*input*/
@@ -19,6 +18,20 @@ const searchBar = createElement('input', {
   className: 'searchBar',
   placeholder: 'Find your favorite villager...',
 });
+
+searchBar.oninput = () => {
+  const name = searchBar.value;
+  const villagers: Villager[] = searchVillager(allVillagers, name);
+
+  // replace list of villagers with filtered list
+  villagerContainer.innerHTML = '';
+
+  const filteredVillagerElements = villagers.map((villager) =>
+    createVillagerCard(villager)
+  );
+
+  villagerContainer.append(...filteredVillagerElements);
+};
 
 const mainElement = createElement('main', {
   className: 'container',

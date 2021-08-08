@@ -19,19 +19,15 @@ export async function getVillager(): Promise<Villager[]> {
   });
 
   return formattedVillagers;
-
-  // const needle = 'ros'.toLowerCase();
-  // const filteredFormattedVillagers = formattedVillagers.filter(
-  //   (villager) => villager.name.toLowerCase().indexOf(needle) !== -1
-  // );
-
-  // return filteredFormattedVillagers;
 }
 
-export async function searchVillager(name: string): Promise<Villager[]> {
-  const allVillagers = await getVillager();
-
+export function searchVillager(
+  allVillagers: Villager[],
+  name: string
+): Villager[] {
+  // variable that saves name and puts it to lowercase
   const needle = name.toLowerCase();
+  //filter by name, avoid typos from upper-/lowercase mispellings
   const filteredVillagers = allVillagers.filter(
     (villager) => villager.name.toLowerCase().indexOf(needle) !== -1
   );
