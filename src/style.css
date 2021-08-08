@@ -11,6 +11,7 @@ h1 {
 body {
   margin: 0;
   height: 100vh;
+  background-color: #3c6e71;
 }
 
 #app {
@@ -19,12 +20,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
+  width: auto;
+}
+
+.header_img {
+  width: 100vw;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-gap: 1em;
 }
 
 .characterContainer {
   padding: 2em;
-  grid-gap: 2em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
