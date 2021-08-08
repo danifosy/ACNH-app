@@ -4,11 +4,9 @@ export type Villager = {
   birthday: string;
   species: string;
   gender: string;
-  catchphrase: string;
 };
 
 export type VillagerFromAPI = {
-  ant00: number;
   id: number;
   'file-name': string;
   name: {
@@ -56,4 +54,8 @@ export type VillagerFromAPI = {
     'catch-KRko': string;
     'catch-EUru': string;
   };
+};
+
+export type AllVillagersFromAPI = {
+  [key: string]: VillagerFromAPI;
 };

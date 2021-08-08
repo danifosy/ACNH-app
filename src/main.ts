@@ -1,8 +1,24 @@
 import './style.css';
 import { createElement } from './utils/createElement';
 import { createVillagerCard } from './components/villagers';
+import { Villager } from './types';
+import { getVillager, searchVillager } from './utils/api';
 
 const app = document.querySelector<HTMLDivElement>('#app');
+
+// const villagers: Villager[] = await getVillager();
+const villagers: Villager[] = await searchVillager('ros');
+
+const villagerContainer = createElement('div', {
+  className: 'villagerContainer',
+  childElements: villagers.map((villager) => createVillagerCard(villager)),
+});
+
+/*input*/
+const searchBar = createElement('input', {
+  className: 'searchBar',
+  placeholder: 'Find your favorite villager...',
+});
 
 const mainElement = createElement('main', {
   className: 'container',
@@ -13,17 +29,8 @@ const mainElement = createElement('main', {
       className: 'header',
       innerText: 'Animal Crossing New Horizon Villagers',
     }),
-    /*input*/
-    createElement('input', {
-      className: 'searchBar',
-      placeholder: 'Find your favorite villager...',
-    }),
-
-    /*add the villager cards */
-    createElement('div', {
-      className: 'villagerContainer',
-      childElements: [createVillagerCard()],
-    }),
+    searchBar,
+    villagerContainer,
   ],
 });
 
