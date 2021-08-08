@@ -1,7 +1,14 @@
 import { createElement } from '../../src/utils/createElement';
 import styles from './villagers.module.css';
+import { Villager } from '../types';
 
-export function createVillagerCard(): HTMLElement {
+export function createVillagerCard({
+  img,
+  name,
+  birthday,
+  species,
+  gender,
+}: Villager): HTMLElement {
   return createElement('div', {
     className: styles.card,
     /*Whole card with child article*/
@@ -13,7 +20,7 @@ export function createVillagerCard(): HTMLElement {
         childElements: [
           createElement('img', {
             className: styles.img,
-            src: 'https://acnhapi.com/v1/images/villagers/1',
+            src: img,
           }),
           /*new div for villager infos*/
 
@@ -23,28 +30,23 @@ export function createVillagerCard(): HTMLElement {
             /*children with infos (the html elements) */
             childElements: [
               createElement('h1', {
-                innerText: 'Cyrano',
+                innerText: name,
                 className: styles.name,
               }),
               /*birthday */
               createElement('p', {
                 className: styles.birthday,
-                innerText: 'March 9th',
+                innerText: birthday,
               }),
               /*Species */
               createElement('p', {
-                innerText: 'Anteater',
+                innerText: species,
                 className: styles.species,
               }),
               /*Gender */
               createElement('p', {
-                innerText: 'Male',
+                innerText: gender,
                 className: styles.gender,
-              }),
-              /*catch-phrase */
-              createElement('p', {
-                innerText: '"ah-CHOO"',
-                className: styles.catchphrase,
               }),
             ],
           }),
