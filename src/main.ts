@@ -38,9 +38,9 @@ const mainElement = createElement('main', {
   /*child of main*/
   childElements: [
     /*h1*/
-    createElement('h1', {
-      className: 'header',
-      innerText: 'Animal Crossing New Horizon Villagers',
+    createElement('img', {
+      className: 'header_img',
+      src: 'https://i.redd.it/r0ny0t4wnbf41.png',
     }),
     searchBar,
     villagerContainer,
